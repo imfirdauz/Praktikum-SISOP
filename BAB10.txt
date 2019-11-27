@@ -1,0 +1,10 @@
+#include <unistd.h>
+#include <fcntl.h>
+int main(void)
+{
+    int filedesc = open("hello.txt", O_RDWR | O_CREAT);
+ 
+    write(filedesc, "Hello world!!!\n", 15);
+ 
+    return 0;
+}
