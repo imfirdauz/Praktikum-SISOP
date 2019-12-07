@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	FILE *fh;
+	fh=fopen("UAP_SISOP.txt","w");
+	if(fh==NULL) {
+        puts("Can't open that file!");
+        exit(1);
+    }
+
+	fclose(fh);
+	fprintf(fh,"Saya merasa bahagia dengan uap sisop ");
+	return(0);
+}
+
+
+#include <pthread.h>
+
+pthread_mutex_t count_mutex;
+long long count;
+
+void jumlah()
+{
+            pthread_mutex_lock(&count_mutex);
+    count = count + 1;
+            //line ini perlu diisi apa?
+}
+
+long long get_jumlah()
+{
+    long long c;
+    
+    pthread_mutex_lock(&count_mutex);
+            c = count;
+    //line ini perlu diisi apa?
+            return (c);
+}
